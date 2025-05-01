@@ -1,172 +1,82 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>النجم الحديث - قطع غيار السيارات</title>
   <style>
-    body {
-      font-family: 'Tahoma', sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #222;
-    }
-    header {
-      background-color: #0f172a;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #1e293b;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background-color: #e2e8f0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
-    }
-    .product {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .contact, .order {
-      background-color: white;
-      margin: 2rem;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .contact h2, .order h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea, select {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-    }
-    button {
-      background-color: #0f172a;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-    .floating-buttons a {
-      background-color: #25D366;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .floating-buttons a.call {
-      background-color: #0f172a;
-    }
-    .map {
-      margin: 2rem;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .map iframe {
-      width: 100%;
-      height: 450px;
-      border: 0;
-    }
+    body { font-family: 'Tahoma', sans-serif; margin: 0; background-color: #f5f5f5; color: #222; }
+    header { background-color: #0f172a; color: white; padding: 1rem 2rem; text-align: center; }
+    nav { background-color: #1e293b; display: flex; justify-content: center; gap: 2rem; padding: 1rem; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    .hero { background-color: #e2e8f0; padding: 2rem; text-align: center; }
+    .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; padding: 2rem; }
+    .product { background-color: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    .contact, .order { background-color: white; margin: 2rem; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .contact h2, .order h2 { text-align: center; margin-bottom: 1rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea, select { padding: 0.75rem; border: 1px solid #ccc; border-radius: 0.5rem; }
+    button { background-color: #0f172a; color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; }
+    footer { background-color: #0f172a; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }/* أزرار عائمة */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+.float-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #0f172a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+.float-btn img {
+  width: 26px;
+  height: 26px;
+}
+.float-btn:hover {
+  background-color: #1e293b;
+}
+.whatsapp { background-color: #25d366; }
+.call { background-color: #10b981; }
+.map { background-color: #3b82f6; }
+
   </style>
 </head>
-<body>
-
-  <header>
+<body>  <header>
     <h1>النجم الحديث</h1>
     <p>متخصصون في بيع قطع غيار السيارات الأصلية</p>
-  </header>
-
-  <nav>
+  </header>  <nav>
     <a href="#">الرئيسية</a>
-    <a href="#">المنتجات</a>
+    <a href="#products">المنتجات</a>
     <a href="#order">طلب شراء</a>
     <a href="#contact">اتصل بنا</a>
-  </nav>
-
-  <section class="hero">
+  </nav>  <section class="hero">
     <h2>أفضل قطع الغيار لسيارتك</h2>
     <p>توصيل سريع - جودة مضمونة - دفع عبر بنك الكريمي</p>
-  </section>
-
-  <section class="products">
+  </section>  <section class="products" id="products">
     <div class="product">
-      <img src="https://example.com/images/oil-filter.jpg" alt="فلتر زيت">
       <h3>فلتر زيت</h3>
+      <img src="https://www.alfaromeo.com/content/dam/alfaromeo/products/filters/oil-filter.jpg" alt="فلتر زيت" width="100%">
       <p>فلتر زيت أصلي لجميع أنواع السيارات.</p>
       <button onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' });">اطلب الآن</button>
     </div>
     <div class="product">
-      <img src="https://example.com/images/battery.jpg" alt="بطارية">
       <h3>بطارية</h3>
+      <img src="https://www.exidegroup.com/sites/default/files/styles/product_image/public/2020-04/EA770-L3.jpg" alt="بطارية" width="100%">
       <p>بطاريات عالية الجودة تدوم طويلاً.</p>
       <button onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' });">اطلب الآن</button>
     </div>
-    <!-- أضف المزيد من المنتجات هنا بنفس التنسيق -->
-  </section>
-
-  <section class="order" id="order">
+    <!-- يمكنك تكرار باقي المنتجات بنفس الطريقة -->
+  </section>  <section class="order" id="order">
     <h2>طلب شراء</h2>
     <form>
       <input type="text" name="fullname" placeholder="الاسم الكامل" required>
@@ -180,9 +90,7 @@
       <textarea name="notes" rows="4" placeholder="ملاحظات إضافية (اختياري)"></textarea>
       <button type="submit">إرسال الطلب</button>
     </form>
-  </section>
-
-  <section class="contact" id="contact">
+  </section>  <section class="contact" id="contact">
     <h2>اتصل بنا</h2>
     <form action="https://formspree.io/f/xwpovznk" method="POST">
       <input type="text" name="name" placeholder="الاسم الكامل" required>
@@ -190,26 +98,18 @@
       <textarea name="message" placeholder="رسالتك..." required></textarea>
       <button type="submit">إرسال</button>
     </form>
-  </section>
-
-  <section class="map">
-    <h2>موقعنا على الخريطة</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
-  </section>
-
-  <footer>
+  </section>  <footer>
     <p>جميع الحقوق محفوظة &copy; النجم الحديث 2025</p>
     <p>للتواصل: 776798168</p>
-  </footer>
-
-  <div class="floating-buttons">
-    <a href="https://wa.me/967776798168" target="_blank">
-      <img src="https://example.com/icons/whatsapp.svg" alt="واتساب" width="20"> واتساب
+  </footer>  <div class="floating-buttons">
+    <a href="https://wa.me/967776798168" target="_blank" class="float-btn whatsapp" title="واتساب">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
     </a>
-    <a href="tel:776798168" class="call">
-      <img src="https://example.com/icons/phone.svg" alt="اتصال" width="20"> اتصال
+    <a href="tel:776798168" class="float-btn call" title="اتصال">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="اتصال">
     </a>
-  </div>
-
-</body>
+    <a href="https://www.google.com/maps/place/%D8%A7%D9%84%D9%86%D8%AC%D9%85+%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AB+%D9%84+%D9%82%D8%B7%D8%B9+%D8%BA%D9%8A%D8%A7%D8%B1+%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA" target="_blank" class="float-btn map" title="الموقع">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="الموقع">
+    </a>
+  </div></body>
 </html>
